@@ -152,20 +152,20 @@ double inferiorFx(double x) {
 
 /* Limite superior de y */
 double superiorFx(double x) {
-	return 1.0;
+	return x*x;
 }
 
 /* Exemplo de funcao de duas variaveis para ser integrada */
 double func_val(double x, double y) {
-	return x*x*x*exp(x);
+	return x*cos(y);
 }
 
 int main(void) {
-	double ax = -2.0; // Limite inferior de integracao de x
-	double bx = 2.0; // Limite superior de integracao de x
+	double ax = 0.0; // Limite inferior de integracao de x
+	double bx = 7.0; // Limite superior de integracao de x
 	
-	int N = 20; // Numero de segmentos no eixo x
-	int M = 1; // Numero de segmentos no eixo y
+	int N = 200; // Numero de segmentos no eixo x
+	int M = 200; // Numero de segmentos no eixo y
 	
 	printf("Metodo do retangulo: %.4lf\n", retangulo(func_val, ax, bx, inferiorFx, superiorFx, N, M));
 	printf("Metodo do trapezio: %.4lf\n", trapezio(func_val, ax, bx, inferiorFx, superiorFx, N, M));
